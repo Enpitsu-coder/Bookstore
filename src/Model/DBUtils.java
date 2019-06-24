@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
-	private static String jdbcURL="jdbc:mysql://localhost:8888/bookstore";
+	private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore?useUnicode=true&characterEncoding=utf-8";
+	private static String jdbcUsername="root";
+    private static String jdbcPassword="";
     protected static Connection ConnectDB() throws SQLException {
     	Connection jdbcConnection;
             try {
@@ -18,7 +20,7 @@ public class DBUtils {
             } catch (ClassNotFoundException e) {
                 throw new SQLException(e);
             }
-            jdbcConnection = DriverManager.getConnection(jdbcURL);
+            jdbcConnection = DriverManager.getConnection(jdbcURL,jdbcUsername,jdbcPassword);
         return jdbcConnection;
     }
      
